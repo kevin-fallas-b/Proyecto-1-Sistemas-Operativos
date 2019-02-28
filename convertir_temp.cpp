@@ -10,6 +10,5 @@ int main()
     for(int i=0;i<=300;i++){
       cout << "Farenheit: " << i << "   =    " << convertirFAC(i) << " Celcius." << endl;
     }
-    std::cout << "hola mundo" << '\n';
     return 0;
 }
