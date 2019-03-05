@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 string mensaje;
@@ -22,8 +23,15 @@ int contPalabras(string texto){
 }
 
 int main(){
-  cout << "Por favor digite un mensaje para ser analizado." << endl;
-  getline(cin,mensaje);
-  cout << "El mensaje contiene " << contPalabras(mensaje) << " palabras." << endl;
-  getchar();
+
+  cout << "Por favor digite un mensaje para ser analizado.\nPresione CTRL + D al finalizar de digitar el mensaje." << endl;
+  char c;
+  while((c = getchar()) != EOF){
+    if(c == '\n'){
+      mensaje += ' ';
+    }else{
+      mensaje += c;
+    }
+  }
+  cout << "\nEl mensaje contiene " << contPalabras(mensaje) << " palabras." << endl;
 }
