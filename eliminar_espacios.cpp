@@ -20,4 +20,5 @@ int main(){
     cout << mensaje.at(i);
   }
   cout << endl;
+  return 0;
 }

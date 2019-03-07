@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdlib.h>       //se incluye para poder usar atoi
-#include <unistd.h>       //se incluye para usar getpid
+#include <unistd.h>       //se incluye para usar getpid && fork
 #include <signal.h>       //se incluye para usar kill
 
 using namespace std;
@@ -24,4 +24,5 @@ int main(int argc, char *argv[]){
       kill(getpid(),SIGTERM); //termino el hilo hijo para evitar comportamientos no deseados. como lectura doble de lineas de codigo
     }
   }
+  return 0;
 }

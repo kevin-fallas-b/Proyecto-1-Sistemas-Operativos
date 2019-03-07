@@ -34,4 +34,5 @@ int main(){
     }
   }
   cout << "\n\nEl mensaje contiene " << contPalabras(mensaje) << " palabras." << endl;
+  return 0;
 }
