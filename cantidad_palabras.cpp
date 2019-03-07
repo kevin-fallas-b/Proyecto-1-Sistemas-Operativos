@@ -24,14 +24,14 @@ int contPalabras(string texto){
 
 int main(){
 
-  cout << "Por favor digite un mensaje para ser analizado.\nPresione CTRL + D al finalizar de digitar el mensaje." << endl;
+  cout << "Por favor digite un mensaje para ser analizado.\nPresione CTRL + D al finalizar de digitar el mensaje.\n" << endl;
   char c;
   while((c = getchar()) != EOF){
-    if(c == '\n'){
+    if(c == '\n' || c=='\t'){
       mensaje += ' ';
     }else{
       mensaje += c;
     }
   }
-  cout << "\nEl mensaje contiene " << contPalabras(mensaje) << " palabras." << endl;
+  cout << "\n\nEl mensaje contiene " << contPalabras(mensaje) << " palabras." << endl;
 }
