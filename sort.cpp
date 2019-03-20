@@ -73,4 +73,5 @@ int main(int argc, char *argv[]){
   for(int i=0;i<=la;i++){
     cout << lineas[i] << endl;
   }
+  return 0;
 }
