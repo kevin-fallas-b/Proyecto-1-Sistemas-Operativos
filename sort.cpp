@@ -66,9 +66,9 @@ int main(int argc, char *argv[]){
     cout << lineas[i] << endl;
     //cout << (int)lineas[i].at(0)<< endl;
   }
-  //hacer sort, codigo tomado de https://gist.github.com/christophewang/ad056af4b3ab0ceebacf
-  int n = sizeof(lineas)/sizeof(lineas[0]);
-  quickSort(lineas,0,n);
+  //hacer sort, codigo tomado de https://gist.github.com/christophewang/ad056af4b3ab0ceebacf pero se modifico bastante
+  int n = sizeof(lineas);
+  quickSort(lineas,0,la);
   cout << "\nMensaje despues de haberse aplicado el quicksort:" << endl;
   for(int i=0;i<=la;i++){
     cout << lineas[i] << endl;
