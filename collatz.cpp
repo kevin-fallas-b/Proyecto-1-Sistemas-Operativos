@@ -10,34 +10,47 @@ using namespace std;
 
 int main(int argc, char *argv[]){
   //validacion de argumentos recibidos
+  cout << "inicio programa";
   if( argc != 2 || !(isdigit(*argv[1])) ){
     cout << "Argumento invalido.\nPor favor ejecute el programa con un numero de argumento.\nejm: ./collatz 8\n" << endl;
     return 0;
   }
   int numero = atoi(argv[1]);                //guardo el numero en una variable para facilidad de lectura
-  vector<int> *secuencia = (vector<int>*) mmap(NULL, numero*2,PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_SHARED,-1, 0);
-  bool seguir = false;
+  cout << "se hizo atoi";
+  //int fd[2]; //0 se usa para leer, 1 para escribir
+  //if(pipe(fd) == -1){
+    //cout << "Error en el pipe";
+    //return 0;
+  //}
+  //pipe(fd);
   pid_t hijo = fork();                       //creo el proceso hijo
   if(hijo == 0){
+    cout << "se entro a hijo";
+    //vector<int> secuencia;
+    cout << numero;
+    //secuencia.push_back(numero);
     while (numero > 1){
-      cout << numero << endl;
-      secuencia->push_back(numero);
+      cout << numero;
       if(numero % 2 == 0){
         numero = numero/2;
       }else{
         numero = (numero *3)+1;
       }
+      cout << "se va a intentar push back de: " << numero;
+      //secuencia.push_back(numero);
     }
-    seguir = true;
+    cout << "termino de encontrar la secuencia";
+    //aqui escribo el vector por medio de pipe
+    //write(fd[1],(void*)&secuencia,secuencia.size()+1);
+    //close(fd[1]);
     kill(getpid(),SIGTERM);
   }
-  cout << "imprimiendo secuencia 0 afuera del hijo:  " << secuencia->at(0);
-  while(seguir == false)
-  {
-    //aqui espero
-  }
-  for(int i=0;i<secuencia->size();i++){
-    cout << secuencia->at(i) << "\t";
-  }
+  //recibe el pipe, imprime
+  //vector<int> resultado;
+  //read(fd[0],&resultado,1);
+  //close(fd[0]);
+  //for(int i=0;i<resultado.size();i++){
+    //cout << resultado.at(i);
+  //}
   return 0;
 }

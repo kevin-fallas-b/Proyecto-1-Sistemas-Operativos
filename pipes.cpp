@@ -17,11 +17,16 @@ int main(int argc, char *argv[]){
   int fd[2]; //0 se usa para leer, 1 para escribir
   if(pipe(fd) == -1){
     cout << "Error en el pipe";
+    return 0;
   }
   //guardo el mensaje en el pipe y cierro la escritura
   write(fd[1],mensaje.c_str(),mensaje.length()+1);
   close(fd[1]);
-  pid_t hijo = fork();
+  pid_t hijo;
+  if((hijo = fork()) == -1){
+    cout << "Error en el fork";
+    return 0;
+  }
   if(hijo == 0){
     string copia;
     char aux;
